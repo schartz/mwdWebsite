@@ -1,7 +1,7 @@
 # MWDWebsite
 
 This is the source code for mwd101.org website
-For tutorial series head over to [My Channel on YouTube(https://www.youtube.com/watch?v=bKYEYb-wkdk&list=PLe-NYy8jvfK9OuRYmJA3vkYGt3Qj_-auB&index=1).
+For tutorial series head over to [My Channel on YouTube](https://www.youtube.com/watch?v=bKYEYb-wkdk&list=PLe-NYy8jvfK9OuRYmJA3vkYGt3Qj_-auB&index=1).
 ## Installation
 
 Standard Laravel project. Standard Laravel installation.
