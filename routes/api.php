@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Use Multipart Form data in your insomnia/Postmant REST client
+Route::post('/tut/create', 'TutorialController@create');
+
+Route::get('/tut/list', 'TutorialController@index');
+
+// Use Form URL encoded data in Insomni/Postman rest client
+Route::put('/tut/update', 'TutorialController@update');
+
+Route::delete('/tut/delete/{tutId}', 'TutorialController@delete');
