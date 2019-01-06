@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Tutorial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TutorialController extends Controller
 {
@@ -21,10 +22,29 @@ class TutorialController extends Controller
 
     }
 
+    /**
+     * This function creates a new tutorial record in the databsae
+     * @param Request $request
+     * @return Tutorial
+     */
     public function create(Request $request)
     {
 
         $data = $request->all();
+        $rules = [
+           'title' => 'required|min:3',
+            'body' => 'required|min:5'
+        ];
+
+        // validator instance
+        $validator = Validator::make($data, $rules);
+
+
+        // handle the error case, gracefully
+        if($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
 
         $tut = new Tutorial();
         $tut->title = $data['title'];
@@ -47,6 +67,24 @@ class TutorialController extends Controller
     public function update(Request $request)
     {
         $data = $request->all();
+
+
+        // validator instance
+        $validator = Validator::make($data, [
+            'title' => 'required|min:3',
+            'body' => 'required|min:5'
+        ]);
+
+
+        // handle the error case, gracefully
+        if($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+
+
+
+
 
         // Step 1: FInd the tutorial
         $tut = Tutorial::where('id', $data['id'])->first();
