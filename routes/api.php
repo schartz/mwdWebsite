@@ -27,3 +27,5 @@ Route::get('/tut/list', 'TutorialController@index');
 Route::put('/tut/update', 'TutorialController@update');
 
 Route::delete('/tut/delete/{tutId}', 'TutorialController@delete');
+
+Route::post('register', 'Auth\AuthController@register');
